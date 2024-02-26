@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import Navbar from './components/Navbar';
+import Textform from './components/Textform';
 import './App.css';
 
 let name = "Sam"
@@ -14,6 +14,7 @@ function App() {
         <>
             {/* <Navbar title={obj.title} aboutText={obj.aboutText}/> */}
             <Navbar />
+            <Textform heading={obj.title}/>
         </>
     );
 }
