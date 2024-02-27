@@ -28,7 +28,7 @@ export default function Textform(props) {
     return (
         <>
             <div>
-                <div className='container'>
+                <div className='container' style={{color: props.mode === 'dark' ? 'white' : 'black'} }>
                     <div className="form-floating">
                         <h1 className='my-3'>{props.heading}</h1>
                         <textarea className="form-control" value={text} onChange={handleOnChange} placeholder="Leave a comment here" id="floatingTextarea2" style={{ height: "200px" }}>
@@ -41,7 +41,7 @@ export default function Textform(props) {
             </div>
 
             {/* Counting words and characters */}
-            <div className='container my-3'>
+            <div className='container my-3' style={{color: props.mode === 'dark' ? 'white' : 'black'} }>
                 <h3>Your text summary:</h3>
                 <p>{text.split(" ").length - 1} words and {text.length} characters</p>
                 <p>{0.008*text.split(" ").length} minutes to read.</p>
