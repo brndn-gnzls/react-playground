@@ -1,8 +1,9 @@
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
+import About from './components/About';
 import './App.css';
 
-let name = "Sam"
+// let name = "Sam"
 
 const obj = {
     title: "Practice Project",
@@ -15,6 +16,7 @@ function App() {
             {/* <Navbar title={obj.title} aboutText={obj.aboutText}/> */}
             <Navbar />
             <Textform heading={obj.title}/>
+            <About />
         </>
     );
 }
