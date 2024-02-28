@@ -1,3 +1,3 @@
-# Getting Started with Create React App
+# React Playground
 
 Just a repository containing Reactjs experiments.
