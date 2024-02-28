@@ -1,10 +1,9 @@
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
-// import About from './components/About';
+import About from './components/About';
 import './App.css';
 import { useState } from 'react'
-
-// let name = "Sam"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 const obj = {
     title: "Practice Project",
@@ -12,7 +11,6 @@ const obj = {
 }
 
 function App() {
-
     const [mode, setMode] = useState('light')
     const [themeText, setThemeText] = useState("Enable Dark Mode")
 
@@ -22,19 +20,23 @@ function App() {
             document.body.style.backgroundColor = 'grey'
             setThemeText("Enable Light Mode")
         } else {
-            setMode('light') 
+            setMode('light')
             document.body.style.backgroundColor = 'white'
             setThemeText("Enable Dark Mode")
         }
     }
 
-
     return (
         <>
-            {/* <Navbar title={obj.title} aboutText={obj.aboutText}/> */}
-            <Navbar mode={mode} toggleMode={toggleMode} modeText={themeText}/>
-            <Textform heading={obj.title} mode={mode}/>
-            {/* <About /> */}
+            <Router>
+                <Navbar mode={mode} toggleMode={toggleMode} modeText={themeText} />
+                <div className='container my-3'>
+                    <Routes>
+                        <Route path="/" element={<Textform heading={obj.title} mode={mode} />} />
+                        <Route path="/about" element={<About />} />
+                    </Routes>
+                </div>
+            </Router>
         </>
     );
 }
