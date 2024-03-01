@@ -2,31 +2,36 @@ import { useState } from 'react'
 import './App.css';
 
 const App = () => {
-    let [count, setCount] = useState(0)
-
-    const handleIncrement = () => {
-        setCount(count + 1)
-    }
-
-    const handleDecrement = () => {
-        if (count > 0) {
-            setCount(count - 1);
-        }
-    }
-
-    const handleReset = () => {
-        setCount(0)
-    }
+    const [tasks, setTasks] = useState([
+        {
+            id: 1478,
+            name: "Lorem Ipsum",
+            completed: true
+        },
+        {
+            id: 2109,
+            name: "Dolor Nurit",
+            completed: false
+        },
+        {
+            id: 3756,
+            name: "Solfit Preceptum",
+            completed: true
+        },
+    ])
 
     return (
         <>
             <div className="App">
-                <div className='box'>
-                    <p>{count}</p>
-                    <button className="add" onClick={handleIncrement}>ADD</button>
-                    <button className="sub" onClick={handleDecrement}>SUB</button>
-                    <button className="res" onClick={handleReset}>RESET</button>
-                </div>
+                <h3>Task List</h3>
+                <ul>
+                    { tasks.map((task) => (
+                        <li key={task.id}>
+                            <span>{task.id} - {task.name}</span>
+                            <button className='delete'>Delete</button>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </>
     )
