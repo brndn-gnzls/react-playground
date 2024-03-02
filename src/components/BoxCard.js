@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './BoxCard.css'
 
 const BoxCard = ({ result, children }) => {
 

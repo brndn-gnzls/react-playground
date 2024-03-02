@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TaskCard from './TaskCard'
 import BoxCard from './BoxCard'
+import './TaskList.css'
 
 function TaskList(props) {
     const [show, setShow] = useState(true)
@@ -31,7 +32,7 @@ function TaskList(props) {
             <h3>{props.title}</h3>
             <p>{props.subtitle}</p>
             <ul>
-                <button className="trigger" onClick={() => setShow(!show)}>Toggle</button>
+                <button className="trigger" onClick={() => setShow(!show)}>{show ? "Hide" : "Show"}</button>
                 {show && tasks.map((task) => (
                     <TaskCard key={task.id} task={task} handleDelete={handleDelete}/>
                 ))}

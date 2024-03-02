@@ -1,5 +1,5 @@
 /* li */
-li.taskcard {
+.taskcard li {
   font: 16px;
   list-style: none;
   margin: 20px 5px;
@@ -11,16 +11,16 @@ li.taskcard {
   align-items: center;
 }
 
-    li.completed {
+    .taskcard li.completed {
     box-shadow: rgb(62, 150, 0) 0px 1px 4px;
     }
 
-    li.incomplete {
+    .taskcard li.incomplete {
     box-shadow: rgba(135, 20, 0, 0.689) 0px 1px 4px;
     }
 
 /* button */
-button.delete {
+.taskcard button.delete {
   border: 0px;
   border-radius: 5px;
   background-color: #be3434;
