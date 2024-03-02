@@ -27,7 +27,7 @@ function TaskList(props) {
         setTasks(tasks.filter(task => task.id !== id))
     }
     return (
-        <>
+        <section className='tasklist'>
             <h3>{props.title}</h3>
             <p>{props.subtitle}</p>
             <ul>
@@ -48,7 +48,7 @@ function TaskList(props) {
                 <p className='title'>Lorem ipsum dolor sit amet.</p>
                 <p className='description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, eligendi!</p>
             </BoxCard>
-        </>
+        </section>
     )
 }
 
