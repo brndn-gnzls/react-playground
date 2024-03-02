@@ -33,7 +33,7 @@ function TaskList(props) {
             <ul>
                 <button className="trigger" onClick={() => setShow(!show)}>Toggle</button>
                 {show && tasks.map((task) => (
-                    <TaskCard key={task.id} task={task} handleDelete={handleDelete}/>
+                    <TaskCard key={task.id} info={props.info} task={task} handleDelete={handleDelete} />
                 ))}
             </ul>
             <BoxCard result="success">
