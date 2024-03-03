@@ -29,26 +29,15 @@ function TaskList(props) {
     }
     return (
         <section className='tasklist'>
-            <h3>{props.title}</h3>
-            <p>{props.subtitle}</p>
             <ul>
-                <button className="trigger" onClick={() => setShow(!show)}>{show ? "Hide" : "Show"}</button>
+                <div className='header'>
+                    <h3>{props.title}</h3>
+                    <button className="trigger" onClick={() => setShow(!show)}>{show ? "Hide Tasks" : "Show Tasks"}</button>
+                </div>
                 {show && tasks.map((task) => (
                     <TaskCard key={task.id} task={task} handleDelete={handleDelete}/>
                 ))}
             </ul>
-            <BoxCard result="success">
-                <p className='title'>Lorem ipsum dolor sit amet.</p>
-                <p className='description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, eligendi!</p>
-            </BoxCard>
-            <BoxCard result="warning">
-                <p className='title'>Lorem ipsum dolor sit amet.</p>
-                <p className='description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, eligendi!</p>
-            </BoxCard>
-            <BoxCard result="alert">
-                <p className='title'>Lorem ipsum dolor sit amet.</p>
-                <p className='description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, eligendi!</p>
-            </BoxCard>
         </section>
     )
 }
