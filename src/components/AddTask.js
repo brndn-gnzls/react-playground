@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './AddTask.css'
 
-const AddTask = () => {
+const AddTask = ({tasks, setTasks}) => {
     const [taskValue, setTaskValue] = useState("")
     const [progressValue, setProgressValue] = useState(false)
 
@@ -22,8 +22,9 @@ const AddTask = () => {
             name: taskValue,
             completed: Boolean(progressValue)
         }
-
-        console.log(task)
+        // Set tasks with previous information ([...tasks, ])
+        // and new information ([ , task])
+        setTasks([...tasks, task])
         handleReset()
     }
 
