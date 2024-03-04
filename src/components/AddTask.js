@@ -1,16 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './AddTask.css'
 
 const AddTask = ({tasks, setTasks}) => {
-    const [taskValue, setTaskValue] = useState("")
     const [progressValue, setProgressValue] = useState(false)
 
-    const handleChange = (event) => {
-        setTaskValue(event.target.value)
-    }
+    const taskRef = useRef("")
 
     const handleReset = () => {
-        setTaskValue("")
+        taskRef.current.value = ""
         setProgressValue(false)
     }
 
@@ -19,7 +16,7 @@ const AddTask = ({tasks, setTasks}) => {
 
         const task = {
             id: Math.floor(Math.random() * 10000),
-            name: taskValue,
+            name: taskRef.current.value,
             completed: Boolean(progressValue)
         }
         // Set tasks with previous information ([...tasks, ])
@@ -35,7 +32,7 @@ const AddTask = ({tasks, setTasks}) => {
     return (
         <section className='addtask'>
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="text" name='task' id='task' placeholder='Task Name' autoComplete='off' value={taskValue}/>
+                <input type="text" name='task' id='task' placeholder='Task Name' autoComplete='off' ref={taskRef}/>
                 <select onChange={handleProgress} value={progressValue}>
                     <option value={false}>Pending</option>
                     <option value={true}>Completed</option>
@@ -44,7 +41,6 @@ const AddTask = ({tasks, setTasks}) => {
                 <button type='submit'>Add Task</button>
 
             </form>
-            <p>{taskValue}</p>
         </section>
     )
 }
