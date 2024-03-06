@@ -29,12 +29,11 @@ h2{
 
 .heading {
   font-size: 22px;
-  align-items: center;
 }
 
 .loading{
   margin: auto;
-  width: 200px;
+  width: 50px;
 }
 
 .filter{

@@ -2,10 +2,11 @@
 // tell it to.
 import React, { useState } from 'react'
 import useFetch from '../hooks/useFetch'
+import Loading from '../assets/loading.gif'
 
 const ProductList = () => {
     const [url, setUrl] = useState("http://localhost:9090/products")
-    const { data: products } = useFetch(url)
+    const { data: products, loading } = useFetch(url)
 
     return (
         <section>
@@ -13,6 +14,8 @@ const ProductList = () => {
                 <button onClick={() => setUrl("http://localhost:9090/products")}>All</button>
                 <button onClick={() => setUrl("http://localhost:9090/products?in_stock=true")}>In-Stock Only</button>
             </div>
+            {loading && <p className='loading'><img src={Loading} width={50} height={50} alt="" /></p>}
+
             {/* products is initially set to null, first run is null, map will not work on null*/}
             {products && products.map((product) => (
                 <div className='card' key={product.id}>
