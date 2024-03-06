@@ -1,20 +1,28 @@
 // useEffect only runs when mounting or when we
 // tell it to.
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 const ProductList = () => {
 
     const [products, setProducts] = useState([])
     const [url, setUrl] = useState("http://localhost:9090/products")
 
-    useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => setProducts(data))
+    // This is a function for which we are dependent; therefore,
+    // we utilize `useCallack`. This returns a memoized function,
+    // keeping the function the same -- this is why the dependency
+    // is added.
+    const getProducts = useCallback(async () => {
+        const response = await fetch(url)
+        const data = await response.json()
+        setProducts(data)
+    }, [url]) // dependency since function return is cached.
 
+    // useEffect for side-effects, such as fetching data.
+    useEffect(() => {
+        getProducts() // Function to get data.
         // [] -- this second argument watches for a changing item.
         // whenever this changes, useEffect runs again.
-    }, [url])
+    }, [getProducts]) // Same function as our dependency.
 
     return (
         <section>
