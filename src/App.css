@@ -36,6 +36,13 @@ h2{
   width: 50px;
 }
 
+.error{
+  margin: auto;
+  width: 90px;
+  color: red;
+  font-weight: 500;
+}
+
 .filter{
   display: flex;
   justify-content: center;
