@@ -6,7 +6,13 @@ import Loading from '../assets/loading.gif'
 
 const ProductList = () => {
     const [url, setUrl] = useState("http://localhost:9090/products")
-    const { data: products, loading, error } = useFetch(url)
+
+    const tObj = {
+        "message": "[!] Message from <ProductList/>",
+        "item": "[+]"
+    }
+
+    const { data: products, loading, error, body } = useFetch(url, tObj)
 
     return (
         <section>
