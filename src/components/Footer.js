@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 
 const Footer = () => {
     return (
         <footer>
-            2030 React Router
+            <Link to="/">2030 React Router</Link>
         </footer>
     )
 }
