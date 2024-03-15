@@ -1,9 +1,11 @@
 import React from 'react'
 
 const Footer = () => {
-  return (
-    <div>Footer</div>
-  )
+    return (
+        <footer>
+            2030 React Router
+        </footer>
+    )
 }
 
 export default Footer
