@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
 
-const Footer = () => {
+export const Footer = () => {
     return (
         <footer>
             <Link to="/">2030 React Router</Link>
         </footer>
     )
 }
-
-export default Footer

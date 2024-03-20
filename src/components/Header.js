@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom"
 import React from 'react'
 import Logo from '../assets/Apex-Header.svg'
 
-const Header = () => {
+export const Header = () => {
 	return (
 		<header>
 			<Link className='logo' to='/'>
@@ -16,5 +16,3 @@ const Header = () => {
 		</header>
 	)
 }
-
-export default Header
